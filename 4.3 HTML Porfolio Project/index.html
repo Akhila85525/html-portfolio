@@ -1,22 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <title>Angela's Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Akhila's Portfolio</title>
+  <style>
+    /* ====== Base / Theme ====== */
+    :root{
+      --bg: #ffffff;
+      --text: #0f172a;         /* slate-900 */
+      --muted: #475569;        /* slate-600 */
+      --card: #f8fafc;         /* slate-50 */
+      --border: #e2e8f0;       /* slate-200 */
+      --accent: #16a34a;       /* green-600 */
+      --accent-hover:#15803d;  /* green-700 */
+      --link: #0ea5e9;         /* sky-500 */
+      --link-hover:#0284c7;    /* sky-600 */
+      --radius: 14px;
+      --shadow: 0 10px 18px rgba(2, 6, 23, 0.06);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    a { color: var(--link); text-decoration: none; }
+    a:hover, a:focus { color: var(--link-hover); text-decoration: underline; }
+
+    /* ====== Layout ====== */
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    header {
+      text-align: center;
+      padding: 32px 0 12px;
+    }
+    h1 {
+      margin: 0 0 6px;
+      font-size: clamp(1.8rem, 2.6vw, 2.4rem);
+      letter-spacing: 0.3px;
+    }
+    h2 {
+      margin: 0;
+      color: var(--muted);
+      font-weight: 500;
+      font-size: clamp(1rem, 2vw, 1.25rem);
+    }
+
+    hr {
+      border: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 28px 0;
+    }
+
+    /* ====== Projects Section ====== */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .project {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 14px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .project:hover,
+    .project:focus-within {
+      transform: translateY(-2px);
+      border-color: #cbd5e1; /* slate-300 */
+      box-shadow: 0 14px 24px rgba(2, 6, 23, 0.08);
+    }
+
+    .project h3 {
+      margin: 2px 0 8px;
+      font-size: 1.05rem;
+    }
+    .project h3 a {
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+    .project h3 a:hover,
+    .project h3 a:focus {
+      color: var(--accent);
+      border-color: var(--accent);
+      text-decoration: none;
+    }
+
+    .project img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: calc(var(--radius) - 6px);
+      border: 1px solid var(--border);
+      background: #fff;
+    }
+
+    /* ====== Footer Nav ====== */
+    .links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .btn-link {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+    }
+    .btn-link:hover,
+    .btn-link:focus {
+      background: var(--card);
+      border-color: #cbd5e1;
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
+    /* Optional accent bar under header */
+    .accent {
+      height: 6px;
+      width: 110px;
+      background: var(--accent);
+      border-radius: 999px;
+      margin: 14px auto 0;
+    }
+
+    /* ====== Accessibility ====== */
+    :focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 2px;
+      border-radius: 6px;
+    }
+
+    /* ====== Small screens tweaks ====== */
+    @media (max-width: 480px) {
+      .project { padding: 12px; }
+      .links { justify-content: center; }
+    }
+  </style>
 </head>
-
 <body>
-  <h1>Angela Yu's Portfolio</h1>
-  <h2>I'm a Web Developer</h2>
-  <hr />
-  <h3><a href="./public/movie-ranking.html">Movie Ranking Project</a></h3>
-  <img src="./assets/images/movie-ranking.png" height="200" alt="movie ranking project preview"/>
-  <h3><a href="./public/birthday-invite.html">Birthday Invite Project</a></h3>
-  <img src="./assets/images/birthday-invite.png" height="200" alt="birthday invite project preview"/>
-  <hr />
-  <a href="./public/about.html">About Me</a>
-  <a href="./public/contact.html">Contact Me</a>
-</body>
+  <div class="container">
+    <header>
+      <h1>Akhila's Portfolio</h1>
+      <h2>I'm a Web Developer</h2>
+      <div class="accent" aria-hidden="true"></div>
+    </header>
 
+    <hr />
+
+    <section class="projects" aria-label="Featured Projects">
+      <article class="project">
+        <h3><a href="./public/movie-ranking.html">Movie Ranking Project</a></h3>
+        <img src="./assets/images/movie-ranking.png" alt="Preview of the Movie Ranking project" height="200" />
+      </article>
+
+      <article class="project">
+        <h3><a href="./public/birthday-invite.html">Birthday Invite Project</a></h3>
+        <img src="./assets/images/birthday-invite.png" alt="Preview of the Birthday Invite project" height="200" />
+      </article>
+    </section>
+
+    <hr />
+
+    <nav class="links" aria-label="About and Contact">
+      <a class="btn-link" href="./public/about.html">About Me</a>
+      <a class="btn-link" href="./public/contact.html">Contact Me</a>
+    </nav>
+  </div>
+</body>
 </html>
